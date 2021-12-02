@@ -3,10 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class SonarSweep {
     public static ArrayList<Integer> inputList = new ArrayList<Integer>();
-
     public static void main(String[] args){
         try {
             Scanner input = new Scanner(new File("C:\\Users\\ifels\\Documents\\GitHub\\Advent-of-Code\\2021\\Day_01\\input.txt"));
@@ -14,7 +12,6 @@ public class SonarSweep {
                 inputList.add(input.nextInt());
             }
         } catch(FileNotFoundException exception){}
-
         System.out.println(calcDepthIncreases(inputList));
         System.out.println(sumOfWindows(inputList));
 
@@ -26,13 +23,8 @@ public class SonarSweep {
             if(list.get(i) < list.get(i+1)){
                 depthIncreases += 1;
             }
-
         }
-
-
         return depthIncreases;
-
-
     }
 
     public static int sumOfWindows(ArrayList<Integer> list){
@@ -44,6 +36,5 @@ public class SonarSweep {
     }
     return res;
   }
-    
     
 }
