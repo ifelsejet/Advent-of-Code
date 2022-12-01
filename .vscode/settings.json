@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "2021/Day_01",
         "2020/Day-01",
-        "2021/Day_01"
+        "2022/Day_01"
     ]
 }
