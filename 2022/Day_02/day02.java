@@ -92,6 +92,8 @@ public class day02{
                     System.out.println("Draw! "+ pointMap.get(loseMap.get(opp)) + " points given");
                     totalScore += 3;
                 }
+                
+        
                 /*
                  * Part 1
                  

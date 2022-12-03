@@ -10,131 +10,99 @@ import java.util.List;
 public class day03{
     public static void main(String[] args){
         BufferedReader reader;
-        int totalScore = 0;
-        HashMap<String, String> gameMap = new HashMap<>();
-        gameMap.put("A", "X"); //Rock
-        gameMap.put("B", "Y"); //Paper
-        gameMap.put("C", "Z"); //Scissors
-        /*
-         * Part 1
-         * HashMap<String, String> winMap = new HashMap<>();
-        winMap.put("X", "C"); //Rock beats scissors
-        winMap.put("Y", "A"); //Paper beats rock
-        winMap.put("Z", "B"); //scissors beats paper
-         */
-        HashMap<String, String> winMap = new HashMap<>();
-        winMap.put("A", "Y"); //Rock beats scissors
-        winMap.put("B", "Z"); //Paper beats rock
-        winMap.put("C", "X"); //scissors beats paper
-        HashMap<String, String> loseMap = new HashMap<>();
-        loseMap.put("C", "Y"); 
-        loseMap.put("A", "Z"); 
-        loseMap.put("B", "X"); 
-        HashMap<String, Integer> pointMap = new HashMap<>();
-        pointMap.put("X", 1); // Rock 1 points
-        pointMap.put("Y", 2); // Paper 2 points
-        pointMap.put("Z", 3); // Scissors 3 points
-
-
-        /*
-         * 
-         * 1st column
-         * A for Rock, 
-         * B for Paper, and 
-         * C for Scissors
-         * 
-         */
-
-        /*
-         * 2nd column (Part 1)
-         * 
-         * X for Rock, (1 pt)
-         * Y for Paper, and (2pt)
-         * Z for Scissors (3pt)
-         * 
-         * 0pts if lose
-         * 3pts if draw
-         * 6pts if win
-         */
-
-         /*
-         * 2nd column (Part 2)
-         * 
-         * X - lose
-         * Y - tie
-         * Z - win
-         * 
-         * 0pts if lose
-         * 3pts if draw
-         * 6pts if win
-         */
+        int pSum = 0;
+        HashMap<String, Integer> lowMap = new HashMap<>();
+        lowMap.put("a", 1);
+        lowMap.put("b", 2);
+        lowMap.put("c",3);
+        lowMap.put("d", 4);
+        lowMap.put("e", 5);
+        lowMap.put("f", 6);
+        lowMap.put("g", 7);
+        lowMap.put("h", 8);
+        lowMap.put("i", 9);
+        lowMap.put("j", 10);
+        lowMap.put("k", 11);
+        lowMap.put("l", 12);
+        lowMap.put("m", 13);
+        lowMap.put("n", 14);
+        lowMap.put("o", 15);
+        lowMap.put("p", 16);
+        lowMap.put("q", 17);
+        lowMap.put("r", 18);
+        lowMap.put("s", 19);
+        lowMap.put("t", 20);
+        lowMap.put("u", 21);
+        lowMap.put("v", 22);
+        lowMap.put("w", 23);
+        lowMap.put("x", 24);
+        lowMap.put("y", 25);
+        lowMap.put("z", 26);
+        lowMap.put("A", 27);
+        lowMap.put("B", 28);
+        lowMap.put("C",29);
+        lowMap.put("D", 30);
+        lowMap.put("E", 31);
+        lowMap.put("F", 32);
+        lowMap.put("G", 33);
+        lowMap.put("H", 34);
+        lowMap.put("I", 35);
+        lowMap.put("J", 36);
+        lowMap.put("K", 37);
+        lowMap.put("L", 38);
+        lowMap.put("M", 39);
+        lowMap.put("N", 40);
+        lowMap.put("O", 41);
+        lowMap.put("P", 42);
+        lowMap.put("Q", 43);
+        lowMap.put("R", 44);
+        lowMap.put("S", 45);
+        lowMap.put("T", 46);
+        lowMap.put("U", 47);
+        lowMap.put("V", 48);
+        lowMap.put("W", 49);
+        lowMap.put("X", 50);
+        lowMap.put("Y", 51);
+        lowMap.put("Z", 52);
+            
 		try {
            
 			reader = new BufferedReader(new FileReader("check.txt"));
 			String line = reader.readLine();
+
 			while (line != null) {
+                //System.out.println("we back");
+                int len = line.length();
+                String part1 = line.substring(0, len / 2), part2 = line.substring(len / 2);
+                System.out.println("Line is: " + line);
+                System.out.println("1st half is: " + part1);
+                System.out.println("2nd half is: " + part2);
+                HashMap<Character, Integer> charMap = new HashMap<>();
+                System.out.println(charMap.entrySet());
+                for(Character c : part1.toCharArray()){
+                    charMap.put(c, charMap.getOrDefault(c, 0)+ 1);
+                }
+                System.out.println(charMap.entrySet());
                 
-                String[] split = line.split("");
-                System.out.println("Line is : " + line);
-                String opp = split[0];
-                String player  = split[2];
-                if(player.equals("X")){ //lose
-                    totalScore += pointMap.get(loseMap.get(opp));
-                    System.out.println("Lose! "+ pointMap.get(loseMap.get(opp)) + " points given");
-                }
-                else if(player.equals("Z")){//win
-                    totalScore += pointMap.get(winMap.get(opp));
-                    System.out.println("Win! "+ pointMap.get(loseMap.get(opp)) + " points given");
-                    totalScore += 6;
-                }
-                else{//draw "Y"
-                    totalScore += pointMap.get(gameMap.get(opp));
-                    System.out.println("Draw! "+ pointMap.get(loseMap.get(opp)) + " points given");
-                    totalScore += 3;
-                }
-                /*
-                 * Part 1
-                 
-                //check for player choice
-                if(player.equals("X")){
-                    totalScore += 1;
-                }
-                else if(player.equals("Y")){
-                    totalScore += 2;
-                }
-                else if(player.equals("Z")){
-                    totalScore += 3;
+                for(Character c: part2.toCharArray()){
+                    if(charMap.get(c) != null && charMap.get(c) > 0){
+                        System.out.println("Character shared is: " + c + " added " + lowMap.get(String.valueOf(c)) + " points");
+                        pSum += lowMap.get(String.valueOf(c));
+                    }
+                    //System.out.println("yer!");
                 }
                 
-
-                //check if player and opp the same
-                if(player.equals(gameMap.get(opp))){
-                    System.out.println("tie!");
-                    totalScore += 3;
-                }
-                //check if player won
-                else if(winMap.get(player).equals(opp)){
-                    System.out.println("win!");
-                    totalScore += 6;
-                }
-                else{
-                    System.out.println("loss!");
-
-                }
-
-                //System.out.println("Split (1st col) is : " + split[0]);
-                //System.out.println("Split (2nd col) is : " + split[2]);
-                */
+                
 				// read next line
 				line = reader.readLine();
-                
+               //System.out.println("next line???");
 			}
 
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        System.out.println("Score is " + totalScore);
-        
+        System.out.println("Priority sum is: " + pSum);
 	}
+    
     }
