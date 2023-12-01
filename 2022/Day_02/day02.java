@@ -69,7 +69,8 @@ public class day02{
          * 6pts if win
          */
 		try {
-           
+            System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
 			reader = new BufferedReader(new FileReader("check.txt"));
 			String line = reader.readLine();
 			while (line != null) {
