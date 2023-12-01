@@ -20,6 +20,7 @@ public class day01 {
 			String line = reader.readLine();
 
                while (line != null) {
+                //PART 2
                     String str = line;
                     System.out.println("Fixed string: " + fixString(str));
                     System.out.println("Replaced w numbers: " + replaceString(fixString(str)));
@@ -28,27 +29,21 @@ public class day01 {
                     System.out.println("Final Digits: " + getDigits(filtered));
                     calSum += getDigits(filtered);
                     /* 
-                    String stringsOnly = str.replaceAll("\\d+(?:[.,]\\d+)*\\s*", "");
-                    stringsOnly =  stringsOnly.replace("x","");
-                    stringsOnly =  stringsOnly.replace("y","");
-                    stringsOnly =  stringsOnly.replace("z","");
-                    stringsOnly =  stringsOnly.replace("p","");
-                    stringsOnly =  stringsOnly.replace("q","");
-                    */
-                    //System.out.println("letters only " + stringsOnly);
+
+                    PART 1
+                   
                    // String numberOnly= str.replaceAll("[^0-9]", "");
                    // System.out.println("Numbers: " + numberOnly + " Filter res: " + getDigits(numberOnly));
                     //char[] chars = numberOnly.toCharArray();
                    // char first = chars[0];
                    // char last = chars[chars.length-1];
-                   // System.out.println("First dig: " + first + " Last dig: " + last);
                     // StringBuilder numb = new StringBuilder();
                    //numb.append(first);
                    // numb.append(last);
                     //System.out.println("appended number res " + getDigits(numberOnly.toString()));
-                    
                    // calSum += getDigits(numberOnly);
-                   // System.out.println(str.toCharArray())
+                   */
+                  
                      line = reader.readLine();
                }
               
