@@ -1,11 +1,17 @@
 {
     "java.project.sourcePaths": [
+        "2023/Day_09",
+        "2023/Day_08",
+        "2023/Day_06",
+        "2023/Day_04",
+        "2023/Day_03",
+        "2023/Day_01",
         "2022/Day_03",
         "2022/Day_02",
         "2022/Day_01",
         "2021/Day_01",
         "2020/Day-01",
-        "2023/Day_01"
+        "2023/Day_10"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }
